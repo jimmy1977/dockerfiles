@@ -13,7 +13,8 @@ version=`cat $PWD/infra/VERSION`
 echo "version: $version"
 
 # Actual building of the image 
-. ./$PWD/infra/infra_build.sh 
+# . ./$PWD/infra/infra_build.sh 
+docker build -f $PWD/infra/infra.Dockerfile -t ghrc.io/infra:latest . 
 
 # Tag the build 
 git add -A 
