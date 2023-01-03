@@ -1,5 +1,5 @@
 # Base Image 
-FROM ghcr.io/gcc:0.0.0
+FROM ghcr.io/jimmy1977/gcc:0.0.0
 
 # Defaults 
 RUN apt-get update && \ 
