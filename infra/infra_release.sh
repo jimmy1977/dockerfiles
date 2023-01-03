@@ -14,7 +14,7 @@ echo "version: $version"
 
 # Actual building of the image 
 # . ./$PWD/infra/infra_build.sh 
-docker build -f $PWD/infra/infra.Dockerfile -t ghrc.io/infra:latest . 
+docker build -f $PWD/infra/infra.Dockerfile -t ghcr.io/infra:latest . 
 
 # Tag the build 
 git add -A 
@@ -24,7 +24,7 @@ git push
 git push --tags 
 
 # Tag the image 
-docker tag ghrc.io/infra:latest ghrc.io/infra:$version 
+docker tag ghcr.io/infra:latest ghcr.io/infra:$version 
 
 # Push it to github 
-docker push ghrc.io/infra:$version 
+docker push ghcr.io/infra:$version 

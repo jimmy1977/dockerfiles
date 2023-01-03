@@ -5,4 +5,4 @@ echo "Building Docker image"
 set -ex 
 
 # Actual building of the image 
-docker build -f infra.Dockerfile -t ghrc.io/infra:latest . 
+docker build -f infra.Dockerfile -t ghcr.io/infra:latest . 
