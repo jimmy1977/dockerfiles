@@ -13,7 +13,7 @@ version=`cat $PWD/infra/VERSION`
 echo "version: $version"
 
 # Actual building of the image 
-./infra_build.sh 
+.$PWD/infra/infra_build.sh 
 
 # Tag the build 
 git add -A 
