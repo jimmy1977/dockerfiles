@@ -7,7 +7,7 @@ on:
     branches: [ "develop" ]
 
 jobs:
-  login:
+  build:
     runs-on: ubuntu-latest
     steps:
       -
@@ -17,11 +17,7 @@ jobs:
           registry: ghcr.io
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
-
-  build:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v3
-    - name: Build the Docker image
-      run: . ./infra/infra_release.sh 
-      
+      - 
+        name: Build the Docker image
+        uses: actions/checkout@v3
+        run: . ./infra/infra_release.sh   
