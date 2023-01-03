@@ -9,7 +9,7 @@ git pull
 
 # Bump Version 
 # docker run --rm -v "$PWD":/release ghrc.io/infra patch
-version=`cat $PWD/VERSION`
+version=`cat $PWD/infra/VERSION`
 echo "version: $version"
 
 # Actual building of the image 
