@@ -1,4 +1,4 @@
-FROM ghcr.io/jimmy1977/gcc:0.0.0
+FROM ghcr.io/gcc:0.0.0
 RUN apt-get update && \ 
     apt-get -y upgrade && \
     apt-get install -y git && \ 
