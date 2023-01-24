@@ -94,10 +94,10 @@ RUN apt-get install -y libprotobuf-dev protobuf-compiler
 RUN apt-get install -y python3-pip 
 
 # Install nanopb 
-RUN cd /opt/ && wget https://github.com/nanopb/nanopb/archive/0.4.7.zip && unzip 0.4.7.zip && \
+RUN cd /opt/ && wget https://github.com/nanopb/nanopb/archive/0.4.1.zip && unzip 0.4.1.zip && \
   cd /opt/nanopb-0.4.7/generator/proto && make && cd ../.. && \ 
   mkdir build && cd build && cmake .. && make && make install
-RUN rm -rf /opt/0.4.7.zip
+RUN rm -rf /opt/0.4.1.zip
 
 # Install protoc 
 RUN cp /srv/tools/protoc-3.10.1/bin/protoc /usr/bin/protoc
@@ -109,3 +109,7 @@ RUN cd /usr/src/gtest && cmake CMakeLists.txt && \
 
 # Install clang format
 RUN apt-get update && apt-get install -y clang-format
+
+
+# Cleanup 
+RUN rm -rf /srv/tools/*
