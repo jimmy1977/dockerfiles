@@ -95,8 +95,7 @@ RUN apt-get install -y python3-pip
 
 # Install nanopb 
 RUN cd /opt/ && wget https://github.com/nanopb/nanopb/archive/0.4.1.zip && unzip 0.4.1.zip && \
-  cd /opt/nanopb-0.4.7/generator/proto && make && cd ../.. && \ 
-  mkdir build && cd build && cmake .. && make && make install
+  cd /opt/nanopb-0.4.1/generator/proto && make
 RUN rm -rf /opt/0.4.1.zip
 
 # Install protoc 
