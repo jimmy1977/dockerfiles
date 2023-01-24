@@ -47,7 +47,6 @@ RUN apt-get update -qq && apt-get -y install \
   libx265-dev \
   libmp3lame-dev \
   libopus-dev \
-  libfdk-aac-dev \
   libvpx-dev \
   aptitude \
   libssl-dev \
@@ -96,7 +95,8 @@ RUN apt-get install -y python3-pip
 
 # Install nanopb 
 RUN cd /opt/ && wget https://github.com/nanopb/nanopb/archive/0.4.7.zip && unzip 0.4.7.zip && \
-  cd /opt/nanopb-0.4.7/generator/proto && make
+  cd /opt/nanopb-0.4.7/generator/proto && make && cd ../.. && \ 
+  mkdir build && cd build && cmake .. && make && make install
 RUN rm -rf /opt/0.4.7.zip
 
 # Install protoc 
@@ -108,4 +108,4 @@ RUN cd /usr/src/gtest && cmake CMakeLists.txt && \
     make && cp lib/* /usr/lib/ 
 
 # Install clang format
-RUN apt-get update && apt-get install -y clang-format clang-format-10
+RUN apt-get update && apt-get install -y clang-format
