@@ -109,6 +109,9 @@ RUN cd /usr/src/gtest && cmake CMakeLists.txt && \
 # Install clang format
 RUN apt-get update && apt-get install -y clang-format
 
+# Python dependencies
+RUN update-alternatives --install /usr/bin/python python /usr/bin/python3.9 1
+RUN pip3 install protobuf==3.19.0
 
 # Cleanup 
 RUN rm -rf /srv/tools/*
