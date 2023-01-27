@@ -113,5 +113,19 @@ RUN apt-get update && apt-get install -y clang-format
 RUN update-alternatives --install /usr/bin/python python /usr/bin/python3.9 1
 RUN pip3 install protobuf==3.19.0
 
+
+# Install pybind11 
+RUN cd /srv/tools/ 
+RUN git clone --branch v2.10.3  https://github.com/pybind/pybind11.git && \
+  cd pybind11 && \
+  mkdir build && cd build && \
+  cmake .. && \
+  make -j$(grep -c ^processor /proc/cpuinfo) && make install && \
+  cd
+
+# Install zsh 
+RUN apt-get install -y zsh
+RUN wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | zsh || true
+
 # Cleanup 
 RUN rm -rf /srv/tools/*
