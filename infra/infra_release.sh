@@ -8,7 +8,7 @@ set -ex
 git pull 
 
 # Bump Version 
-# docker run --rm -v "$PWD":/release ghrc.io/infra patch
+# docker run --rm -v "$PWD":/release ghcr.io/infra patch
 version=`cat $PWD/infra/VERSION`
 echo "version: $version"
 
